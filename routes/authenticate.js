@@ -16,7 +16,7 @@ router.post('/', function(req, res) {
         res.json({ success: false, message: 'Authentication failed. User not found.' });
 
       } else if (user) {
-        if (user.get('password') != password) {
+        if (!user.authenticate(password)) {
           res.json({ success: false, message: 'Authentication failed. Wrong password.' });
 
         } else {
