@@ -1,3 +1,7 @@
-<p>
-  timer works!
-</p>
+<ul>
+  <li *ngFor="let timer of timers">
+    <p>{{timer.id}}</p>
+    <p>{{timer.start_date}}</p>
+    <p>{{timer.finish_date}}</p>
+  </li>
+</ul>

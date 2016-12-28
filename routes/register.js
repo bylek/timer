@@ -8,28 +8,30 @@ router.post('/', function(req, res) {
 
   let email = req.body.email;
   let password = req.body.password;
+  let name = req.body.name;
 
   User
     .findOne({where: {email: email}})
     .then(function(user){
       if (!user) {
-        res.json({ success: false, message: 'Authentication failed. User not found.' });
-
-      } else if (user) {
-        if (!user.authenticate(password)) {
-          res.json({ success: false, message: 'Authentication failed. Wrong password.' });
-
-        } else {
+        User.create({
+          email,
+          password,
+          name
+        }).then(function(user) {
           let token = jwt.sign(user.getJWTPayload(), config.get('secret'), {
             expiresIn: '1d'
           });
 
           res.json({
             success: true,
-            message: 'Authentication successful!',
+            message: 'Register successful!',
             token: token
           });
-        }
+        });
+
+      } else {
+        res.json({ success: false, message: 'Register failed. User already exists.' });
 
       }
     });
