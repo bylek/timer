@@ -10,12 +10,16 @@ import { LoginComponent } from './login/login.component';
 import { AUTH_PROVIDERS } from 'angular2-jwt';
 import { AuthGuard } from './shared/auth.guard';
 import { AuthService } from './shared/auth.service';
+import { RegisterComponent } from './register/register.component';
+import { TimerService } from './timer/timer.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     TimerComponent,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent,
+    TimerComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +31,8 @@ import { AuthService } from './shared/auth.service';
     {provide: LocationStrategy, useClass: HashLocationStrategy},
     AUTH_PROVIDERS,
     AuthGuard,
-    AuthService
+    AuthService,
+    TimerService
   ],
   bootstrap: [AppComponent]
 })

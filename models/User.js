@@ -27,6 +27,13 @@ module.exports = function(sequelize, DataTypes) {
     instanceMethods: {
       authenticate: function(value) {
         return bcrypt.compareSync(value, this.password_digest);
+      },
+      getJWTPayload: function(){
+        return {
+          id: this.id,
+          email: this.email,
+          name: this.name
+        }
       }
     }
   });

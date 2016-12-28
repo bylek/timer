@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AuthService } from '../shared/auth.service';
+import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from '../shared/auth.service';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  selector: 'app-register',
+  templateUrl: './register.component.html',
+  styleUrls: ['./register.component.css']
 })
-export class LoginComponent implements OnInit {
+export class RegisterComponent implements OnInit {
 
   form: FormGroup;
 
@@ -21,7 +21,8 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     this.form = this.formBuilder.group({
       email: ['', Validators.required],
-      password: ['', Validators.required]
+      password: ['', Validators.required],
+      name: ['', Validators.required],
     });
   }
 
@@ -31,14 +32,14 @@ export class LoginComponent implements OnInit {
       return;
     }
 
-    let {email, password} = this.form.value;
-    this.authService.login(email, password)
+    let {email, password, name} = this.form.value;
+    this.authService.register(email, password, name)
       .subscribe((state) => {
         if (state === true) {
           this.router.navigate(['']);
 
         } else {
-          console.log('after login', state);
+          console.log('after register', state);
 
         }
       });

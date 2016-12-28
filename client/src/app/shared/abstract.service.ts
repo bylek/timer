@@ -1,13 +1,14 @@
 import { Observable } from 'rxjs';
 import { Http } from '@angular/http';
 import { environment } from '../../environments/environment';
+import { AuthHttp } from 'angular2-jwt';
 
 export abstract class AbstractService {
 
   private apiEndpoint = environment.apiUrl;
-  private http: Http;
+  private http: Http|AuthHttp;
 
-  constructor(http: Http) {
+  constructor(http: Http|AuthHttp) {
     this.http = http;
   }
 
