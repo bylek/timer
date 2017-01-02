@@ -40,10 +40,11 @@ router.patch('/:id', function(req, res){
 router.post('/', function(req, res){
   const Timer = req.app.get('models').Timer;
 
-  Timer.create({
-      user_id: req.user.id,
-      start_date: new Date()
-    })
+  let data = req.body;
+  data.user_id = req.user.id;
+  data.start_date = new Date();
+
+  Timer.create(data)
     .then(function(timer){
       res.json(timer);
     });

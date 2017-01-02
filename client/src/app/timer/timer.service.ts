@@ -27,7 +27,11 @@ export class TimerService extends AbstractService {
 
   stopTimer(timer: Timer) {
     let finishDate = new Date().toISOString();
-    return this.request('patch', `timers/${timer.id}`, {finish_date: finishDate}, (res: Response) => {
+    return this.updateTimer(timer, {finish_date: finishDate});
+  }
+
+  updateTimer(timer: Timer, data: Object) {
+    return this.request('patch', `timers/${timer.id}`, data, (res: Response) => {
       let json = res.json();
       if (json) {
           return json;
@@ -37,8 +41,8 @@ export class TimerService extends AbstractService {
     });
   }
 
-  createTimer() {
-    return this.request('post', `timers`, null, (res: Response) => {
+  createTimer(data) {
+    return this.request('post', `timers`, data, (res: Response) => {
       let json = res.json();
       if (json) {
         return json;

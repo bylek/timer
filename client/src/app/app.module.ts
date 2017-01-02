@@ -14,16 +14,19 @@ import { RegisterComponent } from './register/register.component';
 import { TimerService } from './timer/timer.service';
 import { CurrentComponent } from './timer/current/current.component';
 import { ListComponent } from './timer/list/list.component';
+import { TimerCreateComponent } from './timer/current/create/create.component';
+import { CurrentTimerComponent } from './timer/current/timer/timer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TimerComponent,
     LoginComponent,
     RegisterComponent,
     TimerComponent,
     CurrentComponent,
-    ListComponent
+    ListComponent,
+    TimerCreateComponent,
+    CurrentTimerComponent
   ],
   imports: [
     BrowserModule,
