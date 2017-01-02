@@ -1,48 +1,33 @@
-import { Component, OnInit, OnDestroy, Input, Output, EventEmitter } from '@angular/core';
-import { Timer } from '../timer.model';
-import { Observable, Subscription } from 'rxjs';
+import { Component, Output, EventEmitter, Input } from '@angular/core';
 import { TimerService } from '../timer.service';
+import { Timer } from '../timer.model';
 
 @Component({
   selector: 'app-timer-current',
   templateUrl: './current.component.html',
   styleUrls: ['./current.component.css']
 })
-export class CurrentComponent implements OnInit, OnDestroy {
+export class CurrentComponent {
 
-  time: string;
+  @Input()
   timer: Timer;
 
   @Output()
   onCurrentTimerChange: EventEmitter<any> = new EventEmitter();
 
-  private subscription: Subscription;
-
-  @Input()
-  set currentTimer(timer){
-    this.timer = timer;
-    this.setTime()
-  };
-
   constructor(
     private timerService: TimerService
   ) { }
 
-  ngOnInit() {
-    let timer = Observable.timer(0, 1000);
-    this.subscription = timer.subscribe(() => {
-      this.setTime();
-    });
+  onTimerUpdate(data) {
+    this.timerService.updateTimer(this.timer, data)
+      .subscribe((timer) => {
+        console.log('updateTimer', timer)
+      })
   }
 
-  setTime() {
-    if (this.timer) {
-      this.time = this.timer.getTime();
-    }
-  }
-
-  onTimerCreate() {
-    this.timerService.createTimer()
+  onTimerCreate(data) {
+    this.timerService.createTimer(data)
       .subscribe(() => {
         this.onCurrentTimerChange.emit();
       })
@@ -53,10 +38,6 @@ export class CurrentComponent implements OnInit, OnDestroy {
       .subscribe(() => {
         this.onCurrentTimerChange.emit();
       });
-  }
-
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
   }
 
 }

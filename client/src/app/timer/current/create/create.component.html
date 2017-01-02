@@ -1,0 +1,12 @@
+<div class="form-inline">
+
+</div>
+
+<div class="input-group">
+  <input #comment class="form-control input-lg" type="text" placeholder="Eg. Fix #1234 task"
+    (keyup.enter)=onCreateTimer(comment.value)
+  />
+  <span class="input-group-btn">
+    <button class="btn btn-primary btn-lg" (click)="onCreateTimer(comment.value)">Create timer</button>
+  </span>
+</div>

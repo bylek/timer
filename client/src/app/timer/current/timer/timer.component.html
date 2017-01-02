@@ -1,0 +1,15 @@
+<div class="timer">
+  <span class="timer-time">{{time}}</span>
+  <a class="timer-stop" (click)="onTimerStop()">&nbsp;</a>
+</div>
+<div class="timer-comment">
+  <div class="form-group">
+    <label>Comment</label>
+    <input #comment  value="{{timer.comment}}" class="form-control input-lg" type="text" placeholder="Eg. Fix #1234 task"
+           (keyup.enter)="onCommentUpdate(comment.value); comment.blur()"
+           (blur)="onCommentUpdate(comment.value)"
+    />
+  </div>
+</div>
+
+<div class="clearfix"></div>

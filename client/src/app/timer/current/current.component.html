@@ -1,16 +1,10 @@
 <div>
-  <h2 class="sub-header">
-    Current timer
-  </h2>
-  <div *ngIf="timer">
-    <p>{{timer.comment || 'No comment'}}</p>
-    <p>{{timer.start_date | date:'short'}}</p>
-    <p>{{time}}</p>
+  <h2 class="sub-header">Current timer</h2>
 
-    <button class="btn btn-default" (click)="onTimerStop()">Stop</button>
-  </div>
-
-  <div *ngIf="!timer">
-    <button class="btn btn-default" (click)="onTimerCreate()">Create timer</button>
-  </div>
+  <app-timer-current-timer *ngIf="timer"
+    [currentTimer]="timer"
+    (onStop)="onTimerStop($event)"
+    (onUpdae)="onTimerUpdate($event)"
+  ></app-timer-current-timer>
+  <app-timer-current-create *ngIf="!timer" (onCreate)="onTimerCreate($event)"></app-timer-current-create>
 </div>

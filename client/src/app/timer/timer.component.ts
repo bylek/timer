@@ -11,6 +11,7 @@ export class TimerComponent implements OnInit {
 
   public timers: Timer[];
   public currentTimer: Timer;
+  public isFetched: boolean = false;
 
   constructor(
     private timerService: TimerService
@@ -31,6 +32,8 @@ export class TimerComponent implements OnInit {
           this.currentTimer = timers.filter(function(timer){
             return !timer.finish_date;
           })[0];
+
+          this.isFetched = true;
         }
       );
   }

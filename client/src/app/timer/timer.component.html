@@ -1,4 +1,4 @@
-<div>
-  <app-timer-current [currentTimer]="currentTimer" (onCurrentTimerChange)="onCurrentTimerChange()"></app-timer-current>
+<div *ngIf="isFetched">
+  <app-timer-current [timer]="currentTimer" (onCurrentTimerChange)="onCurrentTimerChange()"></app-timer-current>
   <app-timer-list [timers]="timers"></app-timer-list>
 </div>
