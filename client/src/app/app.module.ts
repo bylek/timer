@@ -12,6 +12,8 @@ import { AuthGuard } from './shared/auth.guard';
 import { AuthService } from './shared/auth.service';
 import { RegisterComponent } from './register/register.component';
 import { TimerService } from './timer/timer.service';
+import { CurrentComponent } from './timer/current/current.component';
+import { ListComponent } from './timer/list/list.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { TimerService } from './timer/timer.service';
     TimerComponent,
     LoginComponent,
     RegisterComponent,
-    TimerComponent
+    TimerComponent,
+    CurrentComponent,
+    ListComponent
   ],
   imports: [
     BrowserModule,

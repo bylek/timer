@@ -1,7 +1,4 @@
-<ul>
-  <li *ngFor="let timer of timers">
-    <p>{{timer.id}}</p>
-    <p>{{timer.start_date}}</p>
-    <p>{{timer.finish_date}}</p>
-  </li>
-</ul>
+<div>
+  <app-timer-current [currentTimer]="currentTimer" (onCurrentTimerChange)="onCurrentTimerChange()"></app-timer-current>
+  <app-timer-list [timers]="timers"></app-timer-list>
+</div>

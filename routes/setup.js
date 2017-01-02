@@ -6,11 +6,13 @@ router.get('/', function(req, res) {
   const Timer = req.app.get('models').Timer;
 
   Timer.create({
+    comment: 'in progress',
     user_id: 1,
     start_date: new Date(),
   });
 
   Timer.create({
+    comment: 'old timer',
     user_id: 1,
     start_date: new Date(),
     finish_date: new Date(),
