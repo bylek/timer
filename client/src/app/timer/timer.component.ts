@@ -10,19 +10,33 @@ import { TimerService } from './timer.service';
 export class TimerComponent implements OnInit {
 
   public timers: Timer[];
+  public currentTimer: Timer;
 
   constructor(
     private timerService: TimerService
   ) { }
 
   ngOnInit() {
+    this.getTimers();
+  }
+
+  getTimers() {
     this.timerService.getTimers()
       .subscribe(
         timers => {
-          console.log('timers', timers);
-          this.timers = timers;
+          this.timers = timers.filter(function(timer){
+            return !!timer.finish_date;
+          });
+
+          this.currentTimer = timers.filter(function(timer){
+            return !timer.finish_date;
+          })[0];
         }
       );
+  }
+
+  onCurrentTimerChange() {
+    this.getTimers();
   }
 
 }

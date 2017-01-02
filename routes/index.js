@@ -25,8 +25,22 @@ function isAuthenticated(req, res, next) {
         });
 
       } else {
-        req.user = user;
-        next();
+        const User = req.app.get('models').User;
+
+        User
+          .findById(user.id)
+          .then(function(user){
+            if (user){
+              req.user = user;
+              next();
+
+            } else {
+              return res.status(403).send({
+                success: false,
+                message: 'User doesn\'t exist.'
+              });
+            }
+          });
       }
     });
 

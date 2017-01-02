@@ -1,0 +1,21 @@
+<h2 class="sub-header">
+  History
+</h2>
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Comment</th>
+        <th>Start date</th>
+        <th>Time</th>
+      </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let timer of timers">
+      <td>{{timer.comment || 'No comment'}}</td>
+      <td>{{timer.start_date | date:'short'}}</td>
+      <td>{{timer.getTime()}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
