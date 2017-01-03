@@ -52,4 +52,15 @@ export class TimerService extends AbstractService {
     });
   }
 
+  deleteTimer(timer: Timer) {
+    return this.request('delete', `timers/${timer.id}`, null, (res: Response) => {
+      let json = res.json();
+      if (json) {
+        return json;
+      }
+
+      return null;
+    });
+  }
+
 }
