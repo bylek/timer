@@ -5,7 +5,7 @@
 <div class="timer-comment">
   <div class="form-group">
     <label>Comment</label>
-    <input #comment  value="{{timer.comment}}" class="form-control input-lg" type="text" placeholder="Eg. Fix #1234 task"
+    <input #comment  value="{{timer.comment}}" class="form-control form-control-lg" type="text" placeholder="Eg. Fix #1234 task"
            (keyup.enter)="onCommentUpdate(comment.value); comment.blur()"
            (blur)="onCommentUpdate(comment.value)"
     />

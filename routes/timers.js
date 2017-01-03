@@ -50,4 +50,28 @@ router.post('/', function(req, res){
     });
 });
 
+router.delete('/:id', function(req, res){
+  const Timer = req.app.get('models').Timer;
+
+  Timer
+    .findById(req.params.id)
+    .then(function(timer){
+      if (timer) {
+        timer.destroy()
+          .then(function(){
+            res.json({
+              success: true
+            });
+          });
+
+      } else {
+        res.status(403).send({
+          success: false,
+          message: 'Timer doesn\'t exist.'
+        });
+
+      }
+    });
+});
+
 module.exports = router;

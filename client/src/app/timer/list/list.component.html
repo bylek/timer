@@ -1,13 +1,13 @@
-<h2 class="sub-header">
-  History
-</h2>
-<div class="table-responsive">
+<div class="card-block">
+  <h4 class="card-title">History</h4>
+
   <table class="table table-striped">
     <thead>
       <tr>
         <th>Comment</th>
         <th>Start date</th>
         <th>Time</th>
+        <th>Action</th>
       </tr>
     </thead>
     <tbody>
@@ -15,6 +15,9 @@
       <td>{{timer.comment || 'No comment'}}</td>
       <td>{{timer.start_date | date:'short'}}</td>
       <td>{{timer.getTime()}}</td>
+      <td>
+        <a href="#" (click)="onRemove(timer)">Remove</a>
+      </td>
     </tr>
     </tbody>
   </table>

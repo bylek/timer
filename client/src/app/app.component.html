@@ -1,20 +1,12 @@
-<nav class="navbar navbar-inverse navbar-fixed-top" *ngIf="authService.loggedIn()">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">Timer</a>
-    </div>
-    <div id="navbar" class="navbar-collapse collapse">
-      <ul class="nav navbar-nav navbar-right">
-        <li>
-          <a (click)="onLogout()">Logout</a>
-        </li>
-      </ul>
-    </div>
-  </div>
+<nav class="navbar navbar-dark bg-inverse" *ngIf="authService.loggedIn()">
+  <a class="navbar-brand" href="#">WorkTimer</a>
+  <ul class="nav navbar-nav float-xs-right">
+    <li class="nav-item">
+      <a class="nav-link" href="#" (click)="onLogout()">Logout</a>
+    </li>
+  </ul>
 </nav>
 
 <div class="container">
-  <div class="row">
-    <router-outlet></router-outlet>
-  </div>
+  <router-outlet></router-outlet>
 </div>
