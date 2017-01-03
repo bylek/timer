@@ -28,7 +28,6 @@ export class RegisterComponent implements OnInit {
 
   onSubmit() {
     if (!this.form.valid) {
-      console.log('invalid form');
       return;
     }
 
@@ -37,10 +36,6 @@ export class RegisterComponent implements OnInit {
       .subscribe((state) => {
         if (state === true) {
           this.router.navigate(['']);
-
-        } else {
-          console.log('after register', state);
-
         }
       });
   }

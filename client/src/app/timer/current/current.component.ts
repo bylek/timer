@@ -21,9 +21,7 @@ export class CurrentComponent {
 
   onTimerUpdate(data) {
     this.timerService.updateTimer(this.timer, data)
-      .subscribe((timer) => {
-        console.log('updateTimer', timer)
-      })
+      .subscribe(() => {})
   }
 
   onTimerCreate(data) {
