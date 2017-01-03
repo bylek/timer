@@ -27,7 +27,6 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     if (!this.form.valid) {
-      console.log('invalid form');
       return;
     }
 
@@ -36,10 +35,6 @@ export class LoginComponent implements OnInit {
       .subscribe((state) => {
         if (state === true) {
           this.router.navigate(['']);
-
-        } else {
-          console.log('after login', state);
-
         }
       });
   }

@@ -18,7 +18,6 @@ export class ListComponent {
   onRemove(timer: Timer) {
     let canRemove = confirm('Are you sure?');
     if (canRemove) {
-      console.log('timer', timer);
       this.timerService.deleteTimer(timer)
         .subscribe(
           () => {
