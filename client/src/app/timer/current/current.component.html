@@ -4,7 +4,7 @@
   <app-timer-current-timer *ngIf="timer"
     [currentTimer]="timer"
     (onStop)="onTimerStop($event)"
-    (onUpdae)="onTimerUpdate($event)"
+    (onUpdate)="onTimerUpdate($event)"
   ></app-timer-current-timer>
   <app-timer-current-create *ngIf="!timer" (onCreate)="onTimerCreate($event)"></app-timer-current-create>
 </div>
