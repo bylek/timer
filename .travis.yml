@@ -1,3 +1,6 @@
+sudo: required
+dist: trusty
+
 language: node_js
 node_js:
   - '6.7'
@@ -9,6 +12,11 @@ apt:
   packages:
     - google-chrome-stable
     - google-chrome-beta
+
+cache:
+  directories:
+    - node_modules
+    - client/node_modules
 
 before_install:
   - export CHROME_BIN=chromium-browser
