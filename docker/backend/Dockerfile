@@ -5,4 +5,5 @@ ADD package.json /app
 RUN npm install --prod
 ADD config models routes app.js /app/
 
+WORKDIR /app
 CMD npm start
