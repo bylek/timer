@@ -1,6 +1,6 @@
 import { Timer } from './timer.model';
 
-describe('Timer', () => {
+describe('Timer Model', () => {
   let timer: Timer;
 
   beforeEach(() => {
