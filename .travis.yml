@@ -17,7 +17,8 @@ before_install:
 
 before_script:
 - npm install -g angular-cli
-- pwd && cd client && npm install
-- pwd && cd client && ng build
+- cd client
+- npm install
+- ng build
 
 script: ng test --watch=false
