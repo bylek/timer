@@ -1,0 +1,9 @@
+{
+  "secret": "supersecret",
+  "database": {
+    "host": "mysql",
+    "name": "timer",
+    "username": "root",
+    "password": "root"
+  }
+}
