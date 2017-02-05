@@ -4,5 +4,8 @@
 [![buddy pipeline](https://app.buddy.works/bylek/timer/pipelines/pipeline/41939/badge.svg?token=111f7b86a3c9361ccacee57a3b9fbc4a345b723dae565a3573e5774176162302 "buddy pipeline")](https://app.buddy.works/bylek/timer/pipelines/pipeline/41939)
 
 # Screenshots
-![alt tag](https://dl.dropboxusercontent.com/u/32978411/Screeny/screen1.png)
-![alt tag](https://dl.dropboxusercontent.com/u/32978411/Screeny/screen2.png)
+## Login view
+![login view](https://dl.dropboxusercontent.com/u/32978411/Screeny/screen1.png)
+
+## Dashboard view
+![dashboard view](https://dl.dropboxusercontent.com/u/32978411/Screeny/screen2.png)
